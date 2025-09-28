@@ -1,5 +1,8 @@
 name: MakeCode Arcade Release
 
+# This workflow requires Node.js 18.x or higher for compatibility with modern PXT/MakeCode dependencies.
+# Previous versions used Node.js 8.x which is no longer supported by current PXT packages.
+
 on: 
   release:
     types:
@@ -11,12 +14,12 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x]
+        node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: install node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: install makecode
@@ -51,9 +54,15 @@ jobs:
           cp ./built/binary.uf2 binary-p0.uf2
       - name: bundle all
         run: |
-          cat binary-*.uf2 > built/arcade.uf2
+          mkdir -p built
+          if ls binary-*.uf2 1> /dev/null 2>&1; then
+            cat binary-*.uf2 > built/arcade.uf2
+          else
+            echo "No additional binary files found, copying main binary"
+            cp built/binary.uf2 built/arcade.uf2
+          fi
       - name: upload bundled
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
