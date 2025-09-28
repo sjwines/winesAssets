@@ -1,5 +1,8 @@
 name: MakeCode Arcade Release
 
+# This workflow requires Node.js 18.x or higher for compatibility with modern PXT/MakeCode dependencies.
+# Previous versions used Node.js 8.x which is no longer supported by current PXT packages.
+
 on: 
   release:
     types:
