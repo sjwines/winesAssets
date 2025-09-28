@@ -1,5 +1,5 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v2.0.57/---simulator","cdnUrl":"https://cdn.makecode.com","version":"1.0.0","target":"arcade","targetVersion":"2.0.57","repo":"sjwines/wines_assets"}
-// total=1757077 new=33.49% cached=62.51% other=4.00%
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v2.0.57/---simulator","cdnUrl":"https://cdn.makecode.com","version":"2.0.0","target":"arcade","targetVersion":"2.0.57","repo":"sjwines/wines_assets"}
+// total=1757078 new=33.49% cached=62.51% other=4.00%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -428,7 +428,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P17972(s) {
+function _main___P17950(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -848,13 +848,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P17972.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P17972.continuations = [  ]
+_main___P17950.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P17950.continuations = [  ]
 
-function _main___P17972_mk(s) {
+function _main___P17950_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P17972, depth: s.depth + 1,
+        parent: s, fn: _main___P17950, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1459,7 +1459,7 @@ switch (step) {
     if (r0) { step = 22; continue; }
     r0 = pxsim_pxtcore.switch_eq("image12", s.tmp_0);
     if (r0) { step = 23; continue; }
-    r0 = pxsim_pxtcore.switch_eq("oceanBackground", s.tmp_0);
+    r0 = pxsim_pxtcore.switch_eq("ocean_background", s.tmp_0);
     if (r0) { step = 24; continue; }
     r0 = s.tmp_0;
     { step = 25; continue; }
@@ -1517,7 +1517,7 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-myImages_inline__P6874.info = {"start":97,"length":109010,"line":3,"column":38,"endLine":571,"endColumn":5,"fileName":"images.g.ts","functionName":"inline","argumentNames":["name"]}
+myImages_inline__P6874.info = {"start":97,"length":109011,"line":3,"column":38,"endLine":571,"endColumn":5,"fileName":"images.g.ts","functionName":"inline","argumentNames":["name"]}
 
 function myImages_inline__P6874_mk(s) {
     checkStack(s.depth);
@@ -1568,7 +1568,7 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-myImages_inline__P6905.info = {"start":109152,"length":105,"line":573,"column":42,"endLine":578,"endColumn":5,"fileName":"images.g.ts","functionName":"inline","argumentNames":["name"]}
+myImages_inline__P6905.info = {"start":109153,"length":105,"line":573,"column":42,"endLine":578,"endColumn":5,"fileName":"images.g.ts","functionName":"inline","argumentNames":["name"]}
 
 function myImages_inline__P6905_mk(s) {
     checkStack(s.depth);
@@ -1606,7 +1606,7 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-myImages_inline__P6912.info = {"start":109297,"length":105,"line":580,"column":37,"endLine":585,"endColumn":5,"fileName":"images.g.ts","functionName":"inline","argumentNames":["name"]}
+myImages_inline__P6912.info = {"start":109298,"length":105,"line":580,"column":37,"endLine":585,"endColumn":5,"fileName":"images.g.ts","functionName":"inline","argumentNames":["name"]}
 
 function myImages_inline__P6912_mk(s) {
     checkStack(s.depth);
@@ -42524,5 +42524,5 @@ const sprites_BaseSpriteSayRenderer__C2273_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, [])
 
-return _main___P17972
+return _main___P17950
 })
