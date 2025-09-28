@@ -24,10 +24,5 @@
         "arcade"
     ],
     "preferredEditor": "tsprj",
-    "assestPack": true,
-    "yotta": {
-        "config": {
-            "PXT_GC_CHECKS": 1
-        }
-    }
+    "assestPack": true
 }
