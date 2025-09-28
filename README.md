@@ -2,7 +2,7 @@
 
 This is an asset pack for MakeCode Arcade containing various game sprites including drones, ships, and other game assets.
 
-> Open this page at [https://sjwines.github.io/wines_assets/](https://sjwines.github.io/wines_assets/)
+> Open this page at [https://sjwines.github.io/winesAssets/](https://sjwines.github.io/winesAssets/)
 
 ## Use as Extension
 
