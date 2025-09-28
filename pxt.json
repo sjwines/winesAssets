@@ -24,6 +24,5 @@
         "arcade"
     ],
     "preferredEditor": "tsprj",
-    "assetsPack": true,
-    "disableTargetTemplateFiles": true
+    "assetPack": true
 }
