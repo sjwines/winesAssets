@@ -25,11 +25,16 @@ function makeCodeRun(options) {
                 return;
             code = c;
             // find metadata
-            code.replace(/^\/\/\s+meta=([^\n]+)\n/m, function (m, metasrc) {
-                meta = JSON.parse(metasrc);
-            })
+            try {
+                code.replace(/^\/\/\s+meta=([^\n]+)\n/m, function (m, metasrc) {
+                    meta = JSON.parse(metasrc);
+                })
+            } catch (e) {
+                console.warn("Failed to parse metadata:", e);
+                meta = null;
+            }
             var vel = document.getElementById("version");
-            if (meta.version && meta.repo && vel) {
+            if (meta && meta.version && meta.repo && vel) {
                 var ap = document.createElement("a");
                 ap.download = "arcade.uf2";
                 ap.href = "https://github.com/" + meta.repo + "/releases/download/v" + meta.version + "/arcade.uf2";
@@ -37,14 +42,16 @@ function makeCodeRun(options) {
                 vel.appendChild(ap);
             }
             // load simulator with correct version
-            document.getElementById("simframe")
-                .setAttribute("src", meta.simUrl);
+            if (meta && meta.simUrl) {
+                document.getElementById("simframe")
+                    .setAttribute("src", meta.simUrl);
+            }
             initFullScreen();
         })
     }
 
     function startSim() {
-        if (!code || !isReady || started)
+        if (!code || !isReady || started || !meta)
             return
         setState("run");
         started = true;
@@ -129,7 +136,7 @@ function makeCodeRun(options) {
 
     function postMessage(msg) {
         const frame = document.getElementById("simframe");
-        if (frame)
+        if (frame && meta && meta.simUrl)
             frame.contentWindow.postMessage(msg, meta.simUrl);
     }
 
@@ -140,8 +147,13 @@ function makeCodeRun(options) {
                 cb(xhttp.responseText, xhttp.status)
             }
         };
-        xhttp.open("GET", url, true);
-        xhttp.send();
+        try {
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        } catch (e) {
+            console.warn("Failed to send request to:", url, e);
+            cb("", 500);
+        }
     }
 
     function initSimState() {
