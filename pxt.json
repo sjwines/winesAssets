@@ -1,5 +1,5 @@
 {
-    "name": "winesAssets - Copy",
+    "name": "winesAssets",
     "version": "7.0.1",
     "description": "Wine's asset pack with drones, ships and other sprites for MakeCode Arcade",
     "dependencies": {
@@ -25,6 +25,6 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "assetPack": true
 }
